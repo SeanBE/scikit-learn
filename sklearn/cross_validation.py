@@ -1644,6 +1644,10 @@ def _safe_split(estimator, X, y, indices, train_indices=None):
 
 def _score(estimator, X_test, y_test, scorer):
     """Compute the score of an estimator on a given test set."""
+
+    # TODO if scorer is actually just a scoring function..this will cause problems down the line.
+    # Catch earlier for better error message.
+    
     if y_test is None:
         score = scorer(estimator, X_test)
     else:

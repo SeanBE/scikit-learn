@@ -526,6 +526,13 @@ class BaseSearchCV(six.with_metaclass(ABCMeta, BaseEstimator,
 
         estimator = self.estimator
         cv = self.cv
+
+        print('gs',self.scoring)
+        print('gs',self.estimator)
+        
+        # TODO need to validate scorer..
+        # If scoring is not a string..scorer=scoring...
+        # a score function with sig (ypreds...) can be confused with scorer function of (estimator,x,y)..
         self.scorer_ = check_scoring(self.estimator, scoring=self.scoring)
 
         n_samples = _num_samples(X)

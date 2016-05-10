@@ -195,6 +195,7 @@ def get_scorer(scoring):
                              'Valid options are %s'
                              % (scoring, sorted(SCORERS.keys())))
     else:
+        #TODO another check?? 
         scorer = scoring
     return scorer
 

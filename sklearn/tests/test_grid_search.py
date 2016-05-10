@@ -252,6 +252,15 @@ def test_grid_search_error():
     assert_raises(ValueError, cv.fit, X_[:180], y_)
 
 
+def test_grid_search_error_with_scoring():
+
+    X, y = make_classification()
+    grid = {'C': [.1]}
+
+    cv = GridSearchCV(LinearSVC(), grid, scoring=f1_score).fit(X, y)
+    assert_raises(ValueError, cv.fit, X, y)
+
+
 def test_grid_search_iid():
     # test the iid parameter
     # noise-free simple 2d-data
